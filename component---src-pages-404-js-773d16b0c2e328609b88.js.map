@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/404.js"],"names":["error4"],"mappings":"2FAAA,wEAEe,SAASA,IACtB,OAAO","file":"component---src-pages-404-js-773d16b0c2e328609b88.js","sourcesContent":["import React from \"react\"\n\nexport default function error4() {\n  return <p>Nada</p>\n}\n"],"sourceRoot":""}
