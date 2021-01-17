@@ -1,0 +1,59 @@
+@import "~react-bulma-components/src/index.sass"
+
+.btnCountDownTimer
+  border: none
+  padding: 0
+  outline: none
+  cursor: pointer
+  font-size: 20vh
+  margin-left: -100%
+  margin-right: -100%
+  text-align: center
+  background-color: rgba(0,0,0,0)
+
+  &:hover
+    animation: waiting 1s linear infinite
+
+@keyframes waiting
+  25%
+    transform: rotate(-2deg)
+  75%
+    transform: rotate(2deg)
+
+
+
+.listHistory
+  font-size: 1.2em
+  border: none
+  box-shadow: none
+  overflow: auto
+
+  +mobile
+    position: absolute
+    left: 50%
+    transform: translateX(-50%)
+    height: 10vh
+
+  +tablet
+    height: 20vh
+
+  +desktop
+    top: 0
+    left: 0
+    position: fixed
+    height: 100vh
+
+  .list-item
+    animation: enteringList 0.5s ease-out
+
+@keyframes enteringList
+  from
+    opacity: 0
+    padding: 0
+    font-size:0
+  to
+    opacity: 1
+    font-size: 1em
+
+.listHistory::-webkit-scrollbar
+  display: none
