@@ -1,4 +1,5 @@
 import React from "react"
+import Columns from "react-bulma-components/lib/components/columns"
 import List from "react-bulma-components/lib/components/list"
 
 export default function History(props) {
@@ -10,5 +11,11 @@ export default function History(props) {
   const listHistory = props.data.map(time => (
     <List.Item key={time}>{formatDate(time)}</List.Item>
   ))
-  return <List className="listHistory">{listHistory}</List>
+  return (
+    <Columns centered>
+      <Columns.Column size={3} className="has-text-centered">
+        <List className="listHistory">{listHistory}</List>
+      </Columns.Column>
+    </Columns>
+  )
 }

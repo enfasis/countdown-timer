@@ -1,0 +1,6 @@
+-/tmp
+-/vendor
+-/public
+-/.cache
+-/.git
+-/node_modules

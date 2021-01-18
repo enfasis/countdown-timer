@@ -1,5 +1,6 @@
 import React from "react"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
+import Columns from "react-bulma-components/lib/components/columns"
 import { Helmet } from "react-helmet"
 
 export default function CountDownTimer(props) {
@@ -37,13 +38,15 @@ export default function CountDownTimer(props) {
   })
 
   return (
-    <div>
-      <Helmet>
-        <title>{displayTitle(timeLeft)}</title>
-      </Helmet>
-      <button className="btnCountDownTimer" onClick={toggleTimer}>
-        {displayTime(timeLeft)}
-      </button>
-    </div>
+    <Columns centered>
+      <Columns.Column size="half" className="has-text-centered">
+        <Helmet>
+          <title>{displayTitle(timeLeft)}</title>
+        </Helmet>
+        <button className="btnCountDownTimer" onClick={toggleTimer}>
+          {displayTime(timeLeft)}
+        </button>
+      </Columns.Column>
+    </Columns>
   )
 }
