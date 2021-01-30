@@ -4,10 +4,12 @@ import Hero from "react-bulma-components/lib/components/hero"
 import { useMediaQuery } from "react-responsive"
 import Toggle from "react-toggle"
 
+import { getLocalStorageItem, setLocalStorageItem } from "@helpers/utils"
+
 const Layout = ({ children }) => {
   const DARK_CLASS = "dark"
-
-  const systemPrefersDark = useMediaQuery(
+  let localIsDark = getLocalStorageItem("isDark")
+  let systemPrefersDark = useMediaQuery(
     {
       query: "(prefers-color-scheme:dark)",
     },
@@ -16,7 +18,10 @@ const Layout = ({ children }) => {
       setIsDark(prefersDark)
     }
   )
-  const [isDark, setIsDark] = useState(systemPrefersDark)
+  if (localIsDark === null) {
+    localIsDark = systemPrefersDark
+  }
+  const [isDark, setIsDark] = useState(localIsDark)
 
   useEffect(() => {
     if (isDark) {
@@ -24,6 +29,7 @@ const Layout = ({ children }) => {
     } else {
       document.documentElement.classList.remove(DARK_CLASS)
     }
+    setLocalStorageItem("isDark", isDark)
   }, [isDark])
 
   return (
